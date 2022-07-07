@@ -1,6 +1,128 @@
 @import "util";
 
 
-body {
- background-color: $color-cream;
+// Platform Styling
+html {
+  background-color: $color-cream;
+  font-size: $base-font-size;
+}
+
+.page {
+  // Default page Gutters
+  margin: 0 1rem;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.desktop {
+  @include minQuery(display, none, ($sm: none, $lg: block));
+}
+
+.mobile {
+  @include minQuery(display, block, ($sm: block, $lg: none));
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+
+// Component Styling
+.product-card {
+  display: grid;
+  @include minQuery(grid-template-columns, 1fr, ($sm: 1fr, $lg: 1fr 1fr));
+
+  margin: 0 auto;
+  max-width: 600px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  overflow: hidden;
+
+  
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  &--content {
+    background-color: $color-white;
+    @include minQuery(padding, 1.5rem, ($sm: 1.5rem, $lg: 2rem));
+  }
+
+  &--preTitle {
+    font-size: .75rem;
+    color: $color-dark-greyish-blue;
+    line-height: 15px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    @include minQuery(padding-bottom, .75rem, ($sm: .75rem, $lg: 1.25rem));
+  }
+
+  &--title {
+    font-family: 'Fraunces', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2rem;    
+    color: $color-very-dark-blue;
+    padding-bottom: 1rem;
+    @include minQuery(padding-bottom, 1rem, ($sm: 1rem, $lg: 1.5rem));
+  }
+
+  &--description {
+    font-size: .875rem;
+    line-height: 23px;
+    color: $color-dark-greyish-blue;
+    @include minQuery(padding-bottom, 1.5rem, ($sm: 1.5rem, $lg: 1.8125rem));
+  }
+
+  &--price {
+    font-family: 'Fraunces', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2rem;
+    color: $color-dark-cyan;
+  }
+
+  &--msrp {
+    font-size: .8125rem;
+    line-height: 23px;    
+    text-decoration-line: line-through; 
+    color: $color-dark-greyish-blue;
+    padding: 0 1.5rem;
+  }
+
+  &--button {
+   width: 100%;
+    background-color: $color-dark-cyan;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    @include minQuery(margin-top, 1.25rem, ($sm: 1.25rem, $lg: 1.875rem));
+
+    &:hover {
+      background-color: $color-hover;
+    }
+
+    .button-label {
+      font-weight: 700;
+      font-size: .875rem;
+      line-height: 17px;
+      color: $color-white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      &::before {
+        content: url("../images/icon-cart.svg");
+        width: 14.39px;
+        height: 16px;
+        margin-right: .75rem;
+      }
+    }
+  }
+
 }

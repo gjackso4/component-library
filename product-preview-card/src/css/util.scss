@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap');
+
+// font-family: 'Montserrat', sans-serif;
+// font-family: 'Fraunces', serif;
+
+$sm: 375px;
+$md: 800px;
+$lg: 1440px;
+
+$color-dark-cyan: hsl(158, 36%, 37%);
+$color-cream: hsl(30, 38%, 92%);
+$color-very-dark-blue: hsl(212, 21%, 14%);
+$color-dark-greyish-blue: hsl(228, 12%, 48%);
+$color-white: hsl(0, 0%, 100%);
+
+$base-font-size: 14px;
+
+
+
+// @include minQuery(border-radius, 20px, ($sm: 10px, $lg: 0px));
+@mixin minQuery($propertyName, $defaultValue, $mediaQueries: ()) {
+  #{$propertyName}: #{$defaultValue};
+
+  @each $breakpoint, $value in $mediaQueries {
+    @media (min-width: #{$breakpoint}) {
+      #{$propertyName}: #{$value};
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"mappings":";;AAGA","sources":["component-library/product-preview-card/src/css/styles.scss","component-library/product-preview-card/src/css/util.scss"],"sourcesContent":["@import \"util\";\r\n\r\n\r\nbody {\r\n background-color: $color-cream;\r\n}",null],"names":[],"version":3,"file":"index.834b2162.css.map","sourceRoot":"/__parcel_source_root/"}
